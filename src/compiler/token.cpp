@@ -19,21 +19,30 @@ public:
         Semicolon,
         SingleQuote,
         DoubleQuote,
+        End,
+        EndOfFile,
         Comment,
         Unexpected,
     };
 
-    Token(TokenType type, std::string lexeme, int line, int column)
-        : _type{type}, _lexeme{std::move(lexeme)}, _line{line}, _column{column} {}
+    Token(TokenType type, std::string_view lexeme) 
+        : t_type{type}, t_lexeme{lexeme} {}
 
-    TokenType type() const { return _type; }
-    const std::string& lexeme() const { return _lexeme; }
-    int line() const { return _line; }
-    int column() const { return _column; }
+    Token(TokenType type, const char* start, size_t len)
+        : t_type{type}, t_lexeme(start, len) {}
+
+    TokenType type() const { return t_type; }
+    bool is_type(TokenType type) const { return t_type == type; }
+    bool is_type_of(std::initializer_list<TokenType> types) const { 
+        for (auto t : types) 
+            if (t_type == t) return true;
+        
+        return false;
+    }
+
+    std::string_view lexeme() const { return t_lexeme; }
 
 private:
-    TokenType _type{TokenType::Unexpected};
-    std::string _lexeme{};
-    int _line{0};
-    int _column{0};
+    TokenType t_type{TokenType::Unexpected};
+    std::string_view t_lexeme{};
 };
