@@ -1,0 +1,46 @@
+
+type<class> _Int32Vector {
+
+    private : _int32 size;
+    private : _int32 space;
+    private : _int32 factor;
+    private : _int32* arr;
+
+    public : MyVector(size : _int32, factor : _int32) {
+        this.arr :: [size];
+        this.size = size;
+        this.factor = factor;
+        this.space = 0;
+
+
+        /-/ or 
+        do<this> {
+            arr :: [size];
+            size = size;
+            factor = factor;
+            space = 0;
+        }
+
+
+        /-/ or 
+        .arr :: [size];
+        .size = size;
+        .factor = factor;
+        .space = 0;
+    }
+
+    public : method<void> push_back(number : _int32) {
+        if (this.size == this.space) {
+            _int32* arr :: [.factor * .size];
+
+        } else {
+            this.arr.[space - 1] <- number;
+        }
+    }
+}
+
+
+function<void> main() {
+
+
+}
