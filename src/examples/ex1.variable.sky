@@ -1,9 +1,0 @@
-_int32 number = 23;
-
-_int64 number_2 = 45;
-
-_float32 f1 = 3.14;
-
-_float64 f2 = 34.111;
-
-_bool b = true;

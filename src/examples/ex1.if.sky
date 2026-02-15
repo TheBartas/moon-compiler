@@ -1,9 +1,0 @@
-
-
-_int32 number = 34;
-
-if (number > 32) {
-
-} else {
-
-}
