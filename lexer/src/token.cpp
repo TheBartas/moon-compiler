@@ -1,5 +1,5 @@
 
-#include "/mnt/d/Programowanie/software/C++/moon-compiler/parser/inc/token.h";
+#include "token.h"
 
 namespace moon::lexer::token {
 
