@@ -1,8 +1,9 @@
 
 #include "token.h"
 
-namespace moon::lexer::token {
 
+namespace moon::lexer::token {
+    // public
     Token::Token(TokenType _tokenType, std::string_view _tokenLexeme) 
         : tokenType{_tokenType}, tokenLexeme{_tokenLexeme} {}
 
@@ -15,5 +16,4 @@ namespace moon::lexer::token {
             if (tokenType == t) return true;
         return false;
     }
-
 } // moon::lexer::token
