@@ -1,0 +1,37 @@
+# Sky Formal-Grammar Description
+# 
+# A grammar defined in EBNF (Extended Backus–Naur Form).
+#
+# Definitions:
+#   stmt = statement
+#   ID = identifier
+#   IN = decimal number (integer)
+#   FN = floating-point number
+
+program = 
+        stmt, { stmt } 
+        ;
+
+stmt = 
+        expr_assign 
+        ;
+
+expr_assign = 
+        ID '=' expr ';'
+        ;
+
+expr = 
+        term, { ('+' | '-'), term }
+        ;
+
+term = 
+        factor, { ('*' | '/'), factor }
+        ;
+
+factor = 
+        ID
+        | IN
+        | FN
+        ;
+        
+
