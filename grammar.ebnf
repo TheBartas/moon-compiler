@@ -17,7 +17,7 @@ stmt =
         ;
 
 expr_assign = 
-        ID '=' expr ';'
+        [ (INT32 | FLOAT32) ] ID '=' expr ';'
         ;
 
 expr = 

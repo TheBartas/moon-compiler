@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.20)
 project(MoonCompiler LANGUAGES CXX)
 
 add_subdirectory(Lexer)
+add_subdirectory(Parser)
 
 add_executable(MoonCompiler src/main.cpp)
 
