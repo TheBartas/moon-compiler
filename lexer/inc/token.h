@@ -46,6 +46,8 @@ namespace moon::lexer::token {
             kwWHILE,
         };
 
+        Token(TokenType);
+
         Token(TokenType, std::string_view);
 
         TokenType getTokenType() const;

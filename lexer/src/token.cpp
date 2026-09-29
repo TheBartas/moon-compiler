@@ -4,6 +4,9 @@
 
 namespace moon::lexer::token {
     // public
+    Token::Token(TokenType _tokenType)
+        : tokenType{_tokenType} {}
+
     Token::Token(TokenType _tokenType, std::string_view _tokenLexeme) 
         : tokenType{_tokenType}, tokenLexeme{_tokenLexeme} {}
 

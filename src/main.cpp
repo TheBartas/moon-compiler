@@ -2,6 +2,7 @@
 #include <iomanip>
 
 #include "lexer.h"
+#include "parser.h"
 
 
 int main() {
@@ -11,12 +12,23 @@ int main() {
                 "if (a > 100) {"
                 "   a = a * 2;"
                 "}";
+    
+    auto code2 = "_int32 a = 23;";
 
-    ::moon::lexer::Lexer lexer{code};
+
+    // Lexer
+
+    ::moon::lexer::Lexer lexer{code2};
 
     auto tokens = lexer.tokenize();
 
     for (auto token : tokens) {
         std::cout << std::setw(12) << token.getTokenType() << " |" << token.getTokenLexeme() << "|\n";
     }
+
+    // Parser
+
+    ::moon::parser::Parser parser{tokens};
+
+    parser.parse();
 }

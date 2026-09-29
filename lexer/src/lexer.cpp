@@ -136,7 +136,7 @@ namespace moon::lexer {
 
     // public
     Lexer::Lexer(std::string_view _source)
-        : source{_source}, pos{source.data()}, end{source.data() + source.size()} {}
+        : source{_source}, pos{_source.data()}, end{_source.data() + _source.size()} {}
 
     std::vector<lexer::token::Token> Lexer::tokenize() {
         std::vector<lexer::token::Token> tokens;
@@ -149,6 +149,7 @@ namespace moon::lexer {
         {
             tokens.push_back(token);
         }
+        tokens.push_back(lexer::token::Token(lexer::token::Token::TokenType::EndOfFile));
         return tokens;
     }
 } // moon::lexer

@@ -7,4 +7,8 @@ add_subdirectory(Parser)
 
 add_executable(MoonCompiler src/main.cpp)
 
-target_link_libraries(MoonCompiler PRIVATE Lexer)
+target_link_libraries(MoonCompiler 
+    PRIVATE 
+        Lexer
+        Parser
+)
